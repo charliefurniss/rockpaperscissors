@@ -5,28 +5,69 @@ function GameController(){
 
 	var self = this;
 
-	this.startGame = function(){
+	self.message = "Ready?";
+	self.playerIconURL = "";
+	self.computerIconURL = "";
 
-		console.log("start game");
+
+
+	self.init = function(){
+
+		self.message = "Go!";
+
+		startGame();
 	
 	}
 
-	this.selectRock = function(){
+	function startGame(){
 
-		console.log("rock");
-	
+		//show player button choice
+
 	}
 
-	this.selectPaper = function(){
+	function computerTurn() {
 
-		console.log("paper");
-	
+		var iconArray = ["rock", "paper", "scissors"];
+
+		var number = Math.floor(((Math.random() * 3)));
+
+		self.computerIconURL = "images/" + iconArray[number] + ".png";
+
 	}
 
-	this.selectScissors = function(){
-
-		console.log("scissors");
-	
+	self.selectRock = function(){
+		self.playerIconURL = "images/rock.png";
+		computerTurn();
 	}
+
+	self.selectPaper = function(){
+		self.playerIconURL = "images/paper.png";
+		computerTurn();
+	}
+
+	self.selectScissors = function(){
+		self.playerIconURL = "images/scissors.png";
+		computerTurn();
+	}
+
+	// function startCountdown(){
+
+	// 	var countdownArray = ["3", "2", "1", "Go!"];
+	// 	var i = 0;
+
+	// 	function startLoop(){
+	// 		setTimeout(function(){
+	// 			if(i < countdownArray.length){
+	// 				this.countdown = countdownArray[i];
+	// 				i++;
+	// 				startLoop();
+	// 			}
+			
+	// 		}, 1000);
+	// 	}
+
+	// 	startLoop();
+
+	// }
 	
 }
