@@ -33,7 +33,7 @@
 
 		<div id="button-icon-container" ng-show="gameState">
 
-			<input class="button-icon simple-border" id="button-rock" type="submit" value="" ng-click="game.selectRock()">
+			<input class="button-icon simple-border" id="button-rock" type="submit" value="" ng-click="game.selectRock()" ng-class="game.dynamicClass">
 
 			<input class="button-icon simple-border" id="button-paper" type="submit" value="" ng-click="game.selectPaper()">
 

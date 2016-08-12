@@ -65,6 +65,8 @@ function GameController(){
 	self.selectRock = function(){
 		var turn = "rock";
 		completeRound(turn);
+		self.dynamicClass = "highlight";
+		console.log(self.dynamicClass);
 	}
 
 	self.selectPaper = function(){
