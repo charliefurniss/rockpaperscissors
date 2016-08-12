@@ -8,15 +8,12 @@ function GameController(){
 	self.message = "Ready?";
 	self.playerIconURL = "";
 	self.computerIconURL = "";
-
-
+	self.playerScore = 0;
+	self.computerScore = 0;
 
 	self.init = function(){
-
 		self.message = "Go!";
-
 		startGame();
-	
 	}
 
 	function startGame(){
@@ -25,29 +22,44 @@ function GameController(){
 
 	}
 
-	function computerTurn() {
-
+	function computerSelect() {
 		var iconArray = ["rock", "paper", "scissors"];
-
 		var number = Math.floor(((Math.random() * 3)));
+		return iconArray[number];
+	}
 
-		self.computerIconURL = "images/" + iconArray[number] + ".png";
+	function completeRound(playerTurn){
+		var computerTurn = computerSelect();
+		self.playerIconURL = "images/" + playerTurn + ".png";
+		self.computerIconURL = "images/" + computerTurn + ".png";
+		findWinner(playerTurn, computerTurn);
+	}
+
+	function findWinner(playerTurn, computerTurn){
+
+		if (playerTurn === computerTurn){
+			console.log("draw");
+		} else if ((playerTurn == "rock" && computerTurn == "scissors") || (playerTurn == "scissors" && computerTurn == "paper") || (playerTurn == "paper" && computerTurn == "rock")){
+			console.log("player wins");
+		} else {
+			console.log("computer wins");
+		}
 
 	}
 
 	self.selectRock = function(){
-		self.playerIconURL = "images/rock.png";
-		computerTurn();
+		var turn = "rock";
+		completeRound(turn);
 	}
 
 	self.selectPaper = function(){
-		self.playerIconURL = "images/paper.png";
-		computerTurn();
+		var turn = "paper";
+		completeRound(turn);
 	}
 
 	self.selectScissors = function(){
-		self.playerIconURL = "images/scissors.png";
-		computerTurn();
+		var turn = "scissors";
+		completeRound(turn);
 	}
 
 	// function startCountdown(){

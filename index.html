@@ -15,9 +15,10 @@
 
 	<section ng-controller="GameController as game">
 
-		<!-- <div id="message-area">
-			<h2 class="message">Are you ready? Hit 'Go' to start</h2>
-		</div> -->
+		<div id="score-area">
+			<h2 class="score score-player">Player: {{ game.playerScore }}</h2>
+			<h2 class="score score-computer">Computer: {{ game.computerScore }}</h2>
+		</div>
 
 		<div id="gameplay-area" class="row">
 			<div class="game-area game-area-icon simple-border">
