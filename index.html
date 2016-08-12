@@ -15,9 +15,9 @@
 
 	<section ng-controller="GameController as game">
 
-		<div id="message-area">
+		<!-- <div id="message-area">
 			<h2 class="message">Are you ready? Hit 'Go' to start</h2>
-		</div>
+		</div> -->
 
 		<div id="gameplay-area" class="row">
 			<div id="computer-area" class="game-area game-area-icon">
@@ -32,7 +32,17 @@
 		</div>
 
 		
-		<input class="button" id="start-button" type="submit" value="Hit me!" ng-click="game.startGame()">
+		<input class="button-start" id="start-button" type="submit" value="Hit me!" ng-click="game.startGame()">
+
+		<div id="button-icon-container">
+
+			<input class="button-icon" id="button-rock" type="submit" value="" ng-click="game.selectRock()">
+
+			<input class="button-icon" id="button-paper" type="submit" value="" ng-click="game.selectPaper()">
+
+			<input class="button-icon" id="button-scissors" type="submit" value="" ng-click="game.selectScissors()">
+
+		</div>
 		
 
 	</section>

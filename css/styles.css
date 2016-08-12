@@ -19,9 +19,63 @@ header h1 {
 	position: relative;
 	background-color: black;
 	color: #FFFFFF;
-	padding: 2rem;
+	padding: 1.5rem;
 	margin: 0 0 20px 0;
 }
+
+.button-start {
+
+	width: 100%;
+	background-color: black;
+	color: #FFFFFF;
+	font-size: 1.5em;
+	font-weight: 900;
+	padding: 25px;
+
+}
+
+.button-icon {
+
+	background-color: #FFFFFF;
+	width: 32%;
+	height: 87px;
+
+}
+
+#button-icon-container {
+
+	margin: 20px 0;
+
+}
+
+#button-rock {
+
+	background: url('../images/rock.png');
+
+}
+
+#button-paper {
+
+	background: url('../images/paper.png');
+
+}
+
+#button-scissors {
+
+	background: url('../images/scissors.png');
+
+}
+
+#button-rock,
+#button-paper,
+#button-scissors {
+
+	background-size: 80px 80px;
+	background-repeat: no-repeat;
+	background-position: center;
+
+}
+
 
 .countdown {
 
@@ -61,16 +115,5 @@ header h1 {
 
 	margin-top: 40px;
 	margin-bottom: 20px;
-
-}
-
-.button {
-
-	width: 100%;
-	background-color: black;
-	color: #FFFFFF;
-	font-size: 1.5em;
-	font-weight: 900;
-	padding: 25px;
 
 }
