@@ -48,9 +48,9 @@ header h1 {
 
 }
 
-#buttons-area,
 .game-area-icon,
-#message-area {
+#message-area,
+#start-button {
 
 	border: 1px solid black;
 
@@ -64,8 +64,13 @@ header h1 {
 
 }
 
-#message-area {
+.button {
 
-
+	width: 100%;
+	background-color: black;
+	color: #FFFFFF;
+	font-size: 1.5em;
+	font-weight: 900;
+	padding: 25px;
 
 }
