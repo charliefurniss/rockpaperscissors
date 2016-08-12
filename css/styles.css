@@ -1,3 +1,76 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:900,200,600%7CLeague+Script);
+
 body {
-	background-color: green;
+  
+	font-family: Raleway, Helvetica, sans-serif;
+	font-weight: 200;
+	text-align: center;
+	font-size: 20px;
+	margin: 0 auto;
+	max-width: 1000px;
+
+}
+
+header h1 {
+
+	font-weight: 900;
+	text-transform: uppercase;
+	letter-spacing: 12px;
+	position: relative;
+	background-color: black;
+	color: #FFFFFF;
+	padding: 2rem;
+	margin: 0 0 20px 0;
+}
+
+.countdown {
+
+	position: absolute;
+	font-size: 3em;
+	font-weight: 600;
+	text-align: center;
+	display: block;
+	width: 100%;
+	top: 50%;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+
+}
+
+.game-area {
+	
+	height: 250px;
+	width: 250px;
+	display: inline-block;
+	position: relative;
+	margin: 20px;
+
+}
+
+.game-area-icon {
+
+	border: 1px solid black;
+
+}
+
+.game-area-number,
+#message-area {
+
+	border: 1px solid black;
+
+}
+
+.gameplay-area,
+#message-area {
+
+	margin-top: 40px;
+	margin-bottom: 20px;
+
+}
+
+#message-area {
+
+
+
 }

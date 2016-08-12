@@ -8,6 +8,32 @@
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
-	<section id="ratings" ng-controller="GameController as game">
+	<header>
+		<h1>ROCK PAPER SCISSORS</h1>
+	</header>
+
+	<section ng-controller="GameController as game">
+
+		<div id="message-area">
+			<h2 class="message">Are you ready? Hit 'Go' to start</h2>
+		</div>
+
+		<div id="gameplay-area">
+			<div id="computer-area" class="game-area game-area-icon">
+				<span class="countdown">Go!</span>
+			</div>
+			<div id="countdown-area" class="game-area game-area-number">
+				<span class="countdown">Go!</span>
+			</div>
+			<div id="player-area" class="game-area game-area-icon">
+				<span class="countdown">Go!</span>
+			</div>
+		</div>
+
+		<div id="buttons-area">
+
+		</div>
+
 	</section>
+
 </body>
