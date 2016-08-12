@@ -94,17 +94,16 @@ header h1 {
 
 .game-area {
 	
-	height: 250px;
-	width: 250px;
+	height: 0;
+	padding-bottom: 32%;
+	width: 32%;
 	display: inline-block;
 	position: relative;
-	margin: 20px;
+	margin: 20px 0;
 
 }
 
-.game-area-icon,
-#message-area,
-#start-button {
+.simple-border {
 
 	border: 1px solid black;
 
