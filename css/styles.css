@@ -3,19 +3,18 @@
 body {
   
 	font-family: Raleway, Helvetica, sans-serif;
-	font-weight: 200;
+	font-weight: 900;
+	text-transform: uppercase;
+	letter-spacing: 12px;
 	text-align: center;
 	font-size: 20px;
 	margin: 0 auto;
-	max-width: 1000px;
+	max-width: 1000px;	
 
 }
 
 header h1 {
 
-	font-weight: 900;
-	text-transform: uppercase;
-	letter-spacing: 12px;
 	position: relative;
 	background-color: black;
 	color: #FFFFFF;
@@ -28,9 +27,11 @@ header h1 {
 	width: 100%;
 	background-color: black;
 	color: #FFFFFF;
-	font-size: 1.5em;
-	font-weight: 900;
 	padding: 25px;
+	letter-spacing: 8px;
+	text-transform: uppercase;
+	font-size: 20px;
+	font-weight: 900;
 
 }
 
@@ -45,6 +46,7 @@ header h1 {
 #button-icon-container {
 
 	margin: 20px 0;
+	clear: both;
 
 }
 
@@ -70,25 +72,9 @@ header h1 {
 #button-paper,
 #button-scissors {
 
-	background-size: 80px 80px;
+	background-size: 50px 50px;
 	background-repeat: no-repeat;
 	background-position: center;
-
-}
-
-
-.countdown {
-
-	position: absolute;
-	font-size: 3em;
-	font-weight: 600;
-	text-align: center;
-	display: block;
-	width: 100%;
-	top: 50%;
-	transform: translateY(-50%);
-	-webkit-transform: translateY(-50%);
-	-ms-transform: translateY(-50%);
 
 }
 
@@ -105,32 +91,50 @@ header h1 {
 
 .icon {
 
+	position: absolute;
+	display: block;
 	width: 75%;
+	top: 50%;
+	left: 10%;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
 
 }
 
-.game-area-wrapper {
+#gameplay-area {
+
+	clear: both;
+
+}
+
+#gameplay-area,
+#message-area {
+
+	margin-top: 40px;
+	margin-bottom: 20px;
+
+}
+
+.score {
 
 	display: inline;
 
 }
 
-h2 .score {
+.score-computer,
+.game-area-computer {
+	float: right;
+	text-align: right;
+}
 
-	display: inline;
-
+.score-player,
+.game-area-player {
+	float: left;
 }
 
 .simple-border {
 
 	border: 1px solid black;
-
-}
-
-.gameplay-area,
-#message-area {
-
-	margin-top: 40px;
-	margin-bottom: 20px;
 
 }

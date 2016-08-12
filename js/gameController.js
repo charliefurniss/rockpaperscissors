@@ -4,22 +4,27 @@ angular.module('RPSApp')
 function GameController(){
 
 	var self = this;
+	self.gameState = false;
 
-	self.message = "Ready?";
 	self.playerIconURL = "";
 	self.computerIconURL = "";
 	self.playerScore = 0;
 	self.computerScore = 0;
-	self.buttonMessage = "Click to start..."
+	self.champ = "";
 
 	self.init = function(){
-		self.message = "Go!";
 		startGame();
 	}
 
-	function startGame(){
+	self.changeGameState = function() {
+		if(self.gameState){
+			self.gameState = false;
+		} else {
+			self.gameState = true;
+		}
+	}
 
-		//show player button choice
+	function startGame(){
 
 	}
 
@@ -37,36 +42,24 @@ function GameController(){
 	}
 
 	function findWinner(playerTurn, computerTurn){
-
 		if (playerTurn === computerTurn){
-			console.log("draw");
+			return;
 		} else if ((playerTurn == "rock" && computerTurn == "scissors") || (playerTurn == "scissors" && computerTurn == "paper") || (playerTurn == "paper" && computerTurn == "rock")){
 			self.playerScore++;
 		} else {
 			self.computerScore++;
 		}
-
 		checkForChamp();
-
 	}
 
 	function checkForChamp(){
-
 		if (self.playerScore == 2) {
-
-			self.buttonMessage = "Player wins!!! Play again?";
-
-			console.log(self.champ);
-
+			self.champ = "Player";
 		} else if (self.computerScore == 2){
-
-			self.buttonMessage = "Computer!!! Play again?";
-			console.log(self.champ);
-
+			self.champ = "Computer";
 		} else {
 			return;
 		}
-
 	}
 
 	self.selectRock = function(){

@@ -15,30 +15,23 @@
 
 	<section ng-controller="GameController as game">
 
-		<div id="score-area">
-			
-			
+		<div class="score-container">
+			<h2 class="score score-player" ng-show="gameState">Player: {{ game.playerScore }}</h2>
+		</div>
+		<div class="score-container">	
+			<h2 class="score score-computer" ng-show="gameState">Computer: {{ game.computerScore }}</h2>
 		</div>
 
 		<div id="gameplay-area">
-			<div class="game-area-wrapper">
-				<h2 class="score">Player: {{ game.playerScore }}</h2>
-				<div class="game-area game-area-icon simple-border">
+				<div class="game-area game-area-player simple-border">
 					<img class="icon" src={{game.playerIconURL}}>
 				</div>
-			</div>
-			<!-- <div id="countdown-area" class="game-area game-area-number">
-				<span class="countdown">{{game.message}}</span>
-			</div> -->
-			<div class="game-area-wrapper">
-				<h2 class="score">Computer: {{ game.computerScore }}</h2>
-				<div class="game-area game-area-icon simple-border">
+				<div class="game-area game-area-computer simple-border">
 					<img class="icon" src={{game.computerIconURL}}>
 				</div>
-			</div>
 		</div>
 
-		<div id="button-icon-container" ng-show="showIconButtons">
+		<div id="button-icon-container" ng-show="gameState">
 
 			<input class="button-icon simple-border" id="button-rock" type="submit" value="" ng-click="game.selectRock()">
 
@@ -48,9 +41,9 @@
 
 		</div>
 		
-		<input class="button-start" id="start-button" type="submit" value="{{ game.buttonMessage }}" ng-click="showIconButtons = !showIconButtons">
+		<input class="button-start" id="start-button" type="submit" value="Click to start..." ng-click="gameState = !gameState">
 
-		<!-- <h1 class="champ">{{ game.champ }} wins!!!</h1> -->
+		<input class="button-start" id="start-button" type="submit" value="{{ game.champ }} wins!!! Click to play again..." ng-click="gameState = !gameState">
 
 	</section>
 
