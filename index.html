@@ -23,18 +23,15 @@
 			<div class="game-area game-area-icon simple-border">
 				<img class="icon" src={{game.playerIconURL}}>
 			</div>
-			<div id="countdown-area" class="game-area game-area-number">
+			<!-- <div id="countdown-area" class="game-area game-area-number">
 				<span class="countdown">{{game.message}}</span>
-			</div>
+			</div> -->
 			<div class="game-area game-area-icon simple-border">
 				<img class="icon" src={{game.computerIconURL}}>
 			</div>
 		</div>
 
-		
-		<input class="button-start" id="start-button" type="submit" value="Hit me!" ng-click="game.startGame()">
-
-		<div id="button-icon-container">
+		<div id="button-icon-container" ng-show="showIconButtons">
 
 			<input class="button-icon simple-border" id="button-rock" type="submit" value="" ng-click="game.selectRock()">
 
@@ -44,6 +41,7 @@
 
 		</div>
 		
+		<input class="button-start" id="start-button" type="submit" value="Hit me!" ng-click="showIconButtons = !showIconButtons">
 
 	</section>
 
