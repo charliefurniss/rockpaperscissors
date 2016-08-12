@@ -10,6 +10,7 @@ function GameController(){
 	self.computerIconURL = "";
 	self.playerScore = 0;
 	self.computerScore = 0;
+	self.buttonMessage = "Click to start..."
 
 	self.init = function(){
 		self.message = "Go!";
@@ -40,9 +41,30 @@ function GameController(){
 		if (playerTurn === computerTurn){
 			console.log("draw");
 		} else if ((playerTurn == "rock" && computerTurn == "scissors") || (playerTurn == "scissors" && computerTurn == "paper") || (playerTurn == "paper" && computerTurn == "rock")){
-			console.log("player wins");
+			self.playerScore++;
 		} else {
-			console.log("computer wins");
+			self.computerScore++;
+		}
+
+		checkForChamp();
+
+	}
+
+	function checkForChamp(){
+
+		if (self.playerScore == 2) {
+
+			self.buttonMessage = "Player wins!!! Play again?";
+
+			console.log(self.champ);
+
+		} else if (self.computerScore == 2){
+
+			self.buttonMessage = "Computer!!! Play again?";
+			console.log(self.champ);
+
+		} else {
+			return;
 		}
 
 	}

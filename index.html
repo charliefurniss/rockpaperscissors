@@ -16,19 +16,25 @@
 	<section ng-controller="GameController as game">
 
 		<div id="score-area">
-			<h2 class="score score-player">Player: {{ game.playerScore }}</h2>
-			<h2 class="score score-computer">Computer: {{ game.computerScore }}</h2>
+			
+			
 		</div>
 
-		<div id="gameplay-area" class="row">
-			<div class="game-area game-area-icon simple-border">
-				<img class="icon" src={{game.playerIconURL}}>
+		<div id="gameplay-area">
+			<div class="game-area-wrapper">
+				<h2 class="score">Player: {{ game.playerScore }}</h2>
+				<div class="game-area game-area-icon simple-border">
+					<img class="icon" src={{game.playerIconURL}}>
+				</div>
 			</div>
 			<!-- <div id="countdown-area" class="game-area game-area-number">
 				<span class="countdown">{{game.message}}</span>
 			</div> -->
-			<div class="game-area game-area-icon simple-border">
-				<img class="icon" src={{game.computerIconURL}}>
+			<div class="game-area-wrapper">
+				<h2 class="score">Computer: {{ game.computerScore }}</h2>
+				<div class="game-area game-area-icon simple-border">
+					<img class="icon" src={{game.computerIconURL}}>
+				</div>
 			</div>
 		</div>
 
@@ -42,7 +48,9 @@
 
 		</div>
 		
-		<input class="button-start" id="start-button" type="submit" value="Hit me!" ng-click="showIconButtons = !showIconButtons">
+		<input class="button-start" id="start-button" type="submit" value="{{ game.buttonMessage }}" ng-click="showIconButtons = !showIconButtons">
+
+		<!-- <h1 class="champ">{{ game.champ }} wins!!!</h1> -->
 
 	</section>
 
