@@ -48,13 +48,8 @@ header h1 {
 
 }
 
-.game-area-icon {
-
-	border: 1px solid black;
-
-}
-
-.game-area-number,
+#buttons-area,
+.game-area-icon,
 #message-area {
 
 	border: 1px solid black;
