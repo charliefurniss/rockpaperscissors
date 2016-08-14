@@ -60,7 +60,7 @@
 				</div>
 			</div>
 			
-			<!-- This is the main button that appears at the beinning and end of each turn. This area is hidden/shown alternately with the main button with ng-show depending on the value of game.gameState -->
+			<!-- This is the main button that appears at the beginning and end of each turn. This area is hidden/shown alternately with the main button with ng-show depending on the value of game.gameState -->
 			<input class="button-start" id="start-button" type="submit" value="{{ game.buttonMessage }}" ng-click="!game.enableButtonClick || game.startGame()" ng-show="!game.gameState" ng-class=" {'red-button-start' : game.highlightStartButton}">
 		</div>
 	</section>
