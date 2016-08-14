@@ -41,6 +41,7 @@ function GameController($scope, $timeout){
 		self.playerScore = 0;
 		self.computerScore = 0;
 		self.champ = "";
+		self.highlightStartButton = false;
 		self.highlightRock = false;
 		self.highlightPaper = false;
 		self.highlightScissors = false;
@@ -118,12 +119,14 @@ function GameController($scope, $timeout){
 
 	function checkForChamp(){
 		if (self.playerScore == 2) {
-			self.champ = "Player";			
+			self.champ = "Player";
+			self.highlightStartButton = true;			
 			self.buttonMessage = self.champ + " wins!!! Click to play again..."
 			self.enableButtonClick = true;
 			changeGameState();
 		} else if (self.computerScore == 2){
 			self.champ = "Computer";
+			self.highlightStartButton = true;
 			self.buttonMessage = self.champ + " wins!!! Click to play again..."
 			self.enableButtonClick = true;
 			changeGameState();
