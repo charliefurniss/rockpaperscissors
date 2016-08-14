@@ -24,11 +24,14 @@ function GameController(){
 	}
 
 	function resetVariables(){
-		self.playerIconURL = "";
-		self.computerIconURL = "";
+		self.playerIconURL = "images/blank.png";
+		self.computerIconURL = "images/blank.png";
 		self.playerScore = 0;
 		self.computerScore = 0;
 		self.champ = "";
+		self.highlightRock = "";
+		self.highlightPaper = "";
+		self.highlightScissors = "";
 	}
 
 	function computerSelect() {
@@ -72,18 +75,19 @@ function GameController(){
 	self.selectRock = function(){
 		var turn = "rock";
 		completeRound(turn);
-		self.dynamicClass = "highlight";
-		console.log(self.dynamicClass);
+		self.highlightRock = "red-rock";
 	}
 
 	self.selectPaper = function(){
 		var turn = "paper";
 		completeRound(turn);
+		self.highlightPaper = "red-paper";
 	}
 
 	self.selectScissors = function(){
 		var turn = "scissors";
 		completeRound(turn);
+		self.highlightScissors = "red-scissors";
 	}
 
 	// function startCountdown(){
@@ -92,7 +96,7 @@ function GameController(){
 	// 	var i = 0;
 
 	// 	function startLoop(){
-	// 		setTimeout(function(){
+	// 		$timeout(function(){
 	// 			if(i < countdownArray.length){
 	// 				this.countdown = countdownArray[i];
 	// 				i++;

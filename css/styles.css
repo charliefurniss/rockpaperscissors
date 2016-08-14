@@ -1,5 +1,21 @@
 @import url(http://fonts.googleapis.com/css?family=Raleway:900,200,600%7CLeague+Script);
 
+@keyframes buttonFlash {
+    0% {
+        background-color: red;
+        opacity: 1;
+    }
+    22% {
+        background-color: red;
+    }
+    77% {
+        background-color: red;
+    }
+    100% {
+        background-color: #FFFFFF;
+    }
+}
+
 /* GENERAL STYLES */
 
 body {
@@ -13,10 +29,6 @@ header h1 {
 	color: #FFFFFF;
 	padding: 1.5rem;
 	margin: 0 0 20px 0;
-}
-
-.highlight {
-	background-color: red;
 }
 
 .score-container {
@@ -79,6 +91,13 @@ h3.score {
 	text-transform: uppercase;
 	font-size: 20px;
 	font-weight: 900;
+}
+
+.red-rock,
+.red-paper,
+.red-scissors {
+	animation-name: buttonFlash;
+	animation-duration: 0.2s;
 }
 
 
