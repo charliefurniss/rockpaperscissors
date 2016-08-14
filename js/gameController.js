@@ -8,9 +8,22 @@ function GameController($scope, $timeout){
 	var self = this;
 
 	self.gameState = false;
+	self.winMessage = "";
+	self.showWinMessage = false;
 	self.buttonMessage = "Click to play..."
 
 	resetVariables();
+
+	self.startGame = function(){
+		clearIcons();
+		resetVariables();
+		startNewRound();
+	}
+
+	function startNewRound(){
+		clearIcons();
+		startCountdown();
+	}
 
 	function changeGameState(){
 		if(self.gameState){
@@ -20,14 +33,8 @@ function GameController($scope, $timeout){
 		}
 	}
 
-	self.startGame = function(){
-		startCountdown();
-		resetVariables();
-	}
-
 	function resetVariables(){
-		self.playerIconURL = "images/blank.png";
-		self.computerIconURL = "images/blank.png";
+		clearIcons();
 		self.playerScore = 0;
 		self.computerScore = 0;
 		self.champ = "";
@@ -46,39 +53,51 @@ function GameController($scope, $timeout){
 		var computerTurn = computerSelect();
 		self.playerIconURL = "images/" + playerTurn + ".png";
 		self.computerIconURL = "images/" + computerTurn + ".png";
-		removeIcons();
 		findWinner(playerTurn, computerTurn);
 	}
 
-	function removeIcons(){
-		$timeout(function(){
-			self.playerIconURL = "images/blank.png";
-			self.computerIconURL = "images/blank.png";
-		}, 1000);
+	function clearIcons(){
+		self.playerIconURL = "images/blank.png";
+		self.computerIconURL = "images/blank.png";
 	}
 
 	function findWinner(playerTurn, computerTurn){
 		if (playerTurn === computerTurn){
+			self.winMessage = "It's a draw!";
 			return;
 		} else if ((playerTurn == "rock" && computerTurn == "scissors") || (playerTurn == "scissors" && computerTurn == "paper") || (playerTurn == "paper" && computerTurn == "rock")){
+			self.winMessage = playerTurn + " wins!";
 			self.playerScore++;
 		} else {
+			self.winMessage = computerTurn + " wins!";
 			self.computerScore++;
 		}
-		checkForChamp();
+
+		$timeout(function(){
+			flashMessage();
+		}, 2000);
+	}
+
+	function flashMessage(winner){
+		self.showWinMessage = true;
+		$timeout(function(){
+			self.showWinMessage = false;
+			checkForChamp();
+		}, 2000, true);
 	}
 
 	function checkForChamp(){
 		if (self.playerScore == 2) {
-			self.champ = "Player";
-			changeGameState();
+			self.champ = "Player";			
 			self.buttonMessage = self.champ + " wins!!! Click to play again..."
+			changeGameState();
 		} else if (self.computerScore == 2){
 			self.champ = "Computer";
 			changeGameState();
 			self.buttonMessage = self.champ + " wins!!! Click to play again..."
 		} else {
-			return;
+			changeGameState();
+			startNewRound();
 		}
 	}
 
@@ -88,7 +107,7 @@ function GameController($scope, $timeout){
 		self.highlightRock = true;
 		$timeout(function(){
 			self.highlightRock = false;
-		}, 400, true);
+		}, 200, true);
 	}
 
 	self.selectPaper = function(){
@@ -97,7 +116,7 @@ function GameController($scope, $timeout){
 		self.highlightPaper = true;
 		$timeout(function(){
 			self.highlightPaper = false;
-		}, 400, true);
+		}, 200, true);
 	}
 
 	self.selectScissors = function(){
@@ -106,20 +125,22 @@ function GameController($scope, $timeout){
 		self.highlightScissors = true;
 		$timeout(function(){
 			self.highlightScissors = false;
-		}, 400, true);
+		}, 200, true);
 	}
 
 	function startCountdown(){
 
+		self.buttonMessage = "";
 		var countdownArray = ["3", "2", "1"];
 		var i = 0;
 
 		function startLoop(){
 			self.buttonMessage = countdownArray[i];
+			console.log(self.buttonMessage);
 			$timeout(function(){
 				if(i < countdownArray.length - 1){
 					i++;
-					startLoop(self.countdown);
+					startLoop();
 				} else {
 					changeGameState();
 				}
