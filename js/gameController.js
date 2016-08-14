@@ -11,7 +11,6 @@ function GameController($scope, $timeout){
 	self.enableIconClick = false;
 	self.gameState = false;
 	self.winMessage = "";
-	self.showWinMessage = false;
 	self.buttonMessage = "Click to play..."
 
 	resetVariables();
