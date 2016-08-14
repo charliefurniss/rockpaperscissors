@@ -1,9 +1,9 @@
 angular.module('RPSApp')
 	.controller('GameController', GameController);
 
-GameController.$inject = ['$timeout'];
+GameController.$inject = ['$scope', '$timeout'];
 
-function GameController($timeout){
+function GameController($scope, $timeout){
 
 	var self = this;
 
@@ -21,7 +21,7 @@ function GameController($timeout){
 	}
 
 	self.startGame = function(){
-		changeGameState();
+		startCountdown();
 		resetVariables();
 	}
 
@@ -46,7 +46,15 @@ function GameController($timeout){
 		var computerTurn = computerSelect();
 		self.playerIconURL = "images/" + playerTurn + ".png";
 		self.computerIconURL = "images/" + computerTurn + ".png";
+		removeIcons();
 		findWinner(playerTurn, computerTurn);
+	}
+
+	function removeIcons(){
+		$timeout(function(){
+			self.playerIconURL = "images/blank.png";
+			self.computerIconURL = "images/blank.png";
+		}, 1000);
 	}
 
 	function findWinner(playerTurn, computerTurn){
@@ -101,24 +109,23 @@ function GameController($timeout){
 		}, 400, true);
 	}
 
-	// function startCountdown(){
+	function startCountdown(){
 
-	// 	var countdownArray = ["3", "2", "1", "Go!"];
-	// 	var i = 0;
+		var countdownArray = ["3", "2", "1"];
+		var i = 0;
 
-	// 	function startLoop(){
-	// 		$timeout(function(){
-	// 			if(i < countdownArray.length){
-	// 				this.countdown = countdownArray[i];
-	// 				i++;
-	// 				startLoop();
-	// 			}
-			
-	// 		}, 1000);
-	// 	}
-
-	// 	startLoop();
-
-	// }
+		function startLoop(){
+			self.buttonMessage = countdownArray[i];
+			$timeout(function(){
+				if(i < countdownArray.length - 1){
+					i++;
+					startLoop(self.countdown);
+				} else {
+					changeGameState();
+				}
+			}, 1000);
+		}
+		startLoop();
+	}
 	
 }

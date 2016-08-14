@@ -35,14 +35,29 @@ body {
 	letter-spacing: 12px;
 }
 
-header h1 {
-	font-weight: inherit;
+h1.countdown {
+	font-size: 3em;
+	top: 50%;
+	text-align: center;
+	position: absolute;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
 }
 
+h1.countdown,
 h3.score {
 	font-family: Arial;
 	font-weight: 600;
 	letter-spacing: 6px;
+}
+
+.dummy {
+	color: #FFFFFF;
+}
+
+header h1 {
+	font-weight: inherit;
 }
 
 
@@ -80,6 +95,10 @@ h3.score {
 	font-size: 20px;
 	font-weight: 900;
 	border: none;
+}
+
+.button-start:focus {
+	outline: none;
 }
 
 .red-rock,
