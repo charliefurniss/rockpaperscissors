@@ -12,6 +12,8 @@ function GameController($scope, $timeout, GameState){
 	self.gameState = GameState.gameState;		//the value of this boolean variable determines whether the main button or the icon buttons are showing
 	self.winMessage = "";
 	self.buttonMessage = "Click to play...";
+	self.playerIconURL = "images/blank.png";
+	self.computerIconURL = "images/blank.png";
 
 	setVariables();
 
