@@ -73,17 +73,18 @@ function GameController($scope, $timeout){
 			self.computerScore++;
 		}
 
-		$timeout(function(){
-			flashMessage();
-		}, 2000);
+		flashMessage();
+		
 	}
 
 	function flashMessage(winner){
-		self.showWinMessage = true;
 		$timeout(function(){
-			self.showWinMessage = false;
-			checkForChamp();
-		}, 2000, true);
+			self.showWinMessage = true;
+			$timeout(function(){
+				self.showWinMessage = false;
+				checkForChamp();
+			}, 2000, true);
+		}, 2000);
 	}
 
 	function checkForChamp(){
@@ -131,7 +132,8 @@ function GameController($scope, $timeout){
 	function startCountdown(){
 
 		self.buttonMessage = "";
-		var countdownArray = ["3", "2", "1"];
+
+		var countdownArray = ["Ready?", "Ready?", "3", "2", "1"];
 		var i = 0;
 
 		function startLoop(){
@@ -146,6 +148,7 @@ function GameController($scope, $timeout){
 				}
 			}, 1000);
 		}
+
 		startLoop();
 	}
 	
