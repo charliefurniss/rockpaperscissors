@@ -89,19 +89,6 @@ header h1 {
 
 }
 
-.icon {
-
-	display: none;
-	position: absolute;
-	width: 75%;
-	top: 50%;
-	left: 10%;
-	transform: translateY(-50%);
-	-webkit-transform: translateY(-50%);
-	-ms-transform: translateY(-50%);
-
-}
-
 #gameplay-area {
 
 	clear: both;
@@ -117,6 +104,18 @@ header h1 {
 }
 
 .highlight {
+
+}
+
+.icon {
+
+	position: absolute;
+	width: 75%;
+	top: 50%;
+	left: 10%;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
 
 }
 
