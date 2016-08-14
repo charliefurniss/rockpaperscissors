@@ -6,16 +6,9 @@ function GameController(){
 	var self = this;
 
 	self.gameState = false;
-	self.playerIconURL = "";
-	self.computerIconURL = "";
-	self.playerScore = 0;
-	self.computerScore = 0;
-	self.champ = "";
 	self.buttonMessage = "Click to play..."
 
-	self.init = function(){
-		startGame();
-	}
+	resetVariables();
 
 	function changeGameState(){
 		if(self.gameState){
@@ -27,6 +20,10 @@ function GameController(){
 
 	self.startGame = function(){
 		changeGameState();
+		resetVariables();
+	}
+
+	function resetVariables(){
 		self.playerIconURL = "";
 		self.computerIconURL = "";
 		self.playerScore = 0;
