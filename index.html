@@ -16,10 +16,10 @@
 	<section ng-controller="GameController as game">
 
 		<div class="score-container">
-			<h2 class="score score-player" ng-show="gameState">Player: {{ game.playerScore }}</h2>
+			<h2 class="score score-player">Player: {{ game.playerScore }}</h2>
 		</div>
 		<div class="score-container">	
-			<h2 class="score score-computer" ng-show="gameState">Computer: {{ game.computerScore }}</h2>
+			<h2 class="score score-computer">Computer: {{ game.computerScore }}</h2>
 		</div>
 
 		<div id="gameplay-area">
@@ -31,7 +31,7 @@
 				</div>
 		</div>
 
-		<div id="button-icon-container" ng-show="gameState">
+		<div id="button-icon-container" ng-show="game.gameState">
 
 			<input class="button-icon simple-border" id="button-rock" type="submit" value="" ng-click="game.selectRock()" ng-class="game.dynamicClass">
 
@@ -41,9 +41,9 @@
 
 		</div>
 		
-		<input class="button-start" id="start-button" type="submit" value="Click to start..." ng-click="gameState = !gameState">
+		<input class="button-start" id="start-button" type="submit" value="{{ game.buttonMessage }}" ng-click="game.startGame()" ng-show="!game.gameState">
 
-		<input class="button-start" id="start-button" type="submit" value="{{ game.champ }} wins!!! Click to play again..." ng-click="gameState = !gameState">
+		<!-- <input class="button-start" id="start-button" type="submit" value="{{ game.buttonMessage }}" ng-click="gameState = !gameState" ng-show="!gameState"> -->
 
 	</section>
 

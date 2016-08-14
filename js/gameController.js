@@ -4,19 +4,20 @@ angular.module('RPSApp')
 function GameController(){
 
 	var self = this;
-	self.gameState = false;
 
+	self.gameState = false;
 	self.playerIconURL = "";
 	self.computerIconURL = "";
 	self.playerScore = 0;
 	self.computerScore = 0;
 	self.champ = "";
+	self.buttonMessage = "Click to play..."
 
 	self.init = function(){
 		startGame();
 	}
 
-	self.changeGameState = function() {
+	function changeGameState(){
 		if(self.gameState){
 			self.gameState = false;
 		} else {
@@ -24,8 +25,13 @@ function GameController(){
 		}
 	}
 
-	function startGame(){
-
+	self.startGame = function(){
+		changeGameState();
+		self.playerIconURL = "";
+		self.computerIconURL = "";
+		self.playerScore = 0;
+		self.computerScore = 0;
+		self.champ = "";
 	}
 
 	function computerSelect() {
@@ -55,8 +61,12 @@ function GameController(){
 	function checkForChamp(){
 		if (self.playerScore == 2) {
 			self.champ = "Player";
+			changeGameState();
+			self.buttonMessage = self.champ + " wins!!! Click to play again..."
 		} else if (self.computerScore == 2){
 			self.champ = "Computer";
+			changeGameState();
+			self.buttonMessage = self.champ + " wins!!! Click to play again..."
 		} else {
 			return;
 		}
