@@ -85,6 +85,7 @@ h3.score {
 .icon {
 	width: 75%;
 	vertical-align: middle;
+	padding-top: 40px;
 }
 
 .icon-container {
