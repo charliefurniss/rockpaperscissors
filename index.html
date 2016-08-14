@@ -40,24 +40,24 @@
 			</div>
 
 			<div class="buttons-area row" ng-show="game.gameState">
-				<div class="col-xs-4">		
-					<div class="button-box simple-border" id="button-rock" type="submit" value="" ng-click="game.selectRock()" ng-class="{'red-rock' : game.highlightRock}">
+				<div class="col-xs-4">
+					<div class="button-box simple-border" id="button-rock" type="submit" value="" ng-click="!game.enableIconClick || game.selectRock()" ng-class="{'red-rock' : game.highlightRock}">
 						<img class="button-icon" alt="" src="images/rock.png">
 					</div>
 				</div>
 				<div class="col-xs-4">
-					<div class="button-box simple-border" id="button-paper" type="submit" value="" ng-click="game.selectPaper()" ng-class="{'red-paper' : game.highlightPaper}">
+					<div class="button-box simple-border" id="button-paper" type="submit" value="" ng-click="!game.enableIconClick || game.selectPaper()" ng-class="{'red-paper' : game.highlightPaper}">
 						<img class="button-icon" alt="" src="images/paper.png">
 					</div>
 				</div>	
 				<div class="col-xs-4">
-					<div class="button-box simple-border" id="button-scissors" type="submit" value="" ng-click="game.selectScissors()" ng-class=" {'red-scissors' : game.highlightScissors}">
+					<div class="button-box simple-border" id="button-scissors" type="submit" value="" ng-click="!game.enableIconClick || game.selectScissors()" ng-class=" {'red-scissors' : game.highlightScissors}">
 					<img class="button-icon" alt="" src="images/scissors.png">
 					</div>
 				</div>
 			</div>
 			
-			<input class="button-start" id="start-button" type="submit" value="{{ game.buttonMessage }}" ng-click="!game.enableClick || game.startGame()" ng-show="!game.gameState">
+			<input class="button-start" id="start-button" type="submit" value="{{ game.buttonMessage }}" ng-click="!game.enableButtonClick || game.startGame()" ng-show="!game.gameState">
 		</div>
 	</section>
 </body>
