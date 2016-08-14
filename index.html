@@ -17,6 +17,7 @@
 
 		<section ng-controller="GameController as game">
 
+			<!-- area containing the scores and the icon boxes -->
 			<div class="row" id="game-area">
 				<div class="col-xs-6 col-sm-4 icon-area">
 					<div class="score-container">
@@ -40,6 +41,7 @@
 				</div>	
 			</div>
 
+			<!-- area containing the icon buttons used during the game. This area is hidden/shown alternately with the main button with ng-show depending on the value of game.gameState -->
 			<div class="buttons-area row" ng-show="game.gameState">
 				<div class="col-xs-4">
 					<div class="button-box simple-border" id="button-rock" type="submit" value="" ng-click="!game.enableIconClick || game.selectRock()" ng-class="{'red-rock' : game.highlightRock}">
@@ -58,6 +60,7 @@
 				</div>
 			</div>
 			
+			<!-- This is the main button that appears at the beinning and end of each turn. This area is hidden/shown alternately with the main button with ng-show depending on the value of game.gameState -->
 			<input class="button-start" id="start-button" type="submit" value="{{ game.buttonMessage }}" ng-click="!game.enableButtonClick || game.startGame()" ng-show="!game.gameState" ng-class=" {'red-button-start' : game.highlightStartButton}">
 		</div>
 	</section>
