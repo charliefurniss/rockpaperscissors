@@ -15,12 +15,6 @@ header h1 {
 	margin: 0 0 20px 0;
 }
 
-#game-area,
-#message-area {
-	margin-top: 40px;
-	margin-bottom: 20px;
-}
-
 .highlight {
 	background-color: red;
 }
@@ -52,10 +46,29 @@ header h1 {
 h3.score {
 	font-family: Arial;
 	font-weight: 600;
+	letter-spacing: 6px;
 }
 
 
 /* BUTTON STYLES */
+
+.button-box {
+	background-color: #FFFFFF;
+	height: 87px;
+	position: relative;
+	width: 100%;
+}
+
+.button-box,
+.button-start {
+	margin-top: 40px;
+	margin-bottom: 20px;
+}
+
+.button-icon {
+	width: 20%;
+	padding-top: 10px
+}
 
 .button-start {
 	width: 100%;
@@ -66,17 +79,6 @@ h3.score {
 	text-transform: uppercase;
 	font-size: 20px;
 	font-weight: 900;
-}
-
-.button-box {
-	background-color: #FFFFFF;
-	height: 87px;
-	position: relative;
-}
-
-.button-icon {
-	width: 20%;
-	padding-top: 10px
 }
 
 
@@ -91,4 +93,39 @@ h3.score {
 .icon-container {
     height: 0;
     padding-bottom: 100%;
+}
+
+
+@media screen and (max-width: 544px) {
+
+	/*GENERAL STYLES*/
+
+	.score-container {
+		margin-bottom: 20px;
+	}
+
+	/*BUTTON STYLES*/
+
+	.button-icon {
+		width: 40%;
+		padding-top: 10px
+	}
+
+	/*TEXT STYLES*/
+
+	.button-start {
+		font-size: 0.8em;
+	}
+
+	header h1 {
+		font-size: 1em;
+	}
+
+	.score {
+		font-size: 0.6em;
+	}
+
+	
+
+
 }
