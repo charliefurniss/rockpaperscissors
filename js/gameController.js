@@ -7,6 +7,7 @@ function GameController($scope, $timeout){
 
 	var self = this;
 
+	self.enableClick = true;
 	self.gameState = false;
 	self.winMessage = "";
 	self.showWinMessage = false;
@@ -15,6 +16,7 @@ function GameController($scope, $timeout){
 	resetVariables();
 
 	self.startGame = function(){
+		self.enableClick = false;
 		clearIcons();
 		resetVariables();
 		startNewRound();
@@ -91,11 +93,13 @@ function GameController($scope, $timeout){
 		if (self.playerScore == 2) {
 			self.champ = "Player";			
 			self.buttonMessage = self.champ + " wins!!! Click to play again..."
+			self.enableClick = true;
 			changeGameState();
 		} else if (self.computerScore == 2){
 			self.champ = "Computer";
-			changeGameState();
 			self.buttonMessage = self.champ + " wins!!! Click to play again..."
+			self.enableClick = true;
+			changeGameState();
 		} else {
 			changeGameState();
 			startNewRound();
