@@ -1,7 +1,9 @@
 angular.module('RPSApp')
 	.controller('GameController', GameController);
 
-function GameController(){
+GameController.$inject = ['$timeout'];
+
+function GameController($timeout){
 
 	var self = this;
 
@@ -29,9 +31,9 @@ function GameController(){
 		self.playerScore = 0;
 		self.computerScore = 0;
 		self.champ = "";
-		self.highlightRock = "";
-		self.highlightPaper = "";
-		self.highlightScissors = "";
+		self.highlightRock = false;
+		self.highlightPaper = false;
+		self.highlightScissors = false;
 	}
 
 	function computerSelect() {
@@ -75,19 +77,28 @@ function GameController(){
 	self.selectRock = function(){
 		var turn = "rock";
 		completeRound(turn);
-		self.highlightRock = "red-rock";
+		self.highlightRock = true;
+		$timeout(function(){
+			self.highlightRock = false;
+		}, 400, true);
 	}
 
 	self.selectPaper = function(){
 		var turn = "paper";
 		completeRound(turn);
-		self.highlightPaper = "red-paper";
+		self.highlightPaper = true;
+		$timeout(function(){
+			self.highlightPaper = false;
+		}, 400, true);
 	}
 
 	self.selectScissors = function(){
 		var turn = "scissors";
 		completeRound(turn);
-		self.highlightScissors = "red-scissors";
+		self.highlightScissors = true;
+		$timeout(function(){
+			self.highlightScissors = false;
+		}, 400, true);
 	}
 
 	// function startCountdown(){

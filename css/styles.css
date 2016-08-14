@@ -1,21 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Raleway:900,200,600%7CLeague+Script);
 
-@keyframes buttonFlash {
-    0% {
-        background-color: red;
-        opacity: 1;
-    }
-    22% {
-        background-color: red;
-    }
-    77% {
-        background-color: red;
-    }
-    100% {
-        background-color: #FFFFFF;
-    }
-}
-
 /* GENERAL STYLES */
 
 body {
@@ -96,8 +80,7 @@ h3.score {
 .red-rock,
 .red-paper,
 .red-scissors {
-	animation-name: buttonFlash;
-	animation-duration: 0.2s;
+	background-color: red;
 }
 
 
@@ -143,8 +126,5 @@ h3.score {
 	.score {
 		font-size: 0.6em;
 	}
-
-	
-
 
 }
