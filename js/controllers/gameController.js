@@ -1,9 +1,9 @@
 angular.module('RPSApp')
 	.controller('GameController', GameController);
 
-GameController.$inject = ['$scope', '$timeout'];
+GameController.$inject = ['$scope', '$timeout', 'GameStateService'];
 
-function GameController($scope, $timeout){
+function GameController($scope, $timeout, GameState){
 
 	var self = this;
 
