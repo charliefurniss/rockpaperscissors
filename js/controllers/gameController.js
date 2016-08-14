@@ -9,9 +9,11 @@ function GameController($scope, $timeout, GameState){
 
 	self.enableButtonClick = true;
 	self.enableIconClick = false;
-	self.gameState = false;
+	self.gameState = GameState.gameState;
 	self.winMessage = "";
 	self.buttonMessage = "Click to play..."
+
+	console.log(self.gameState);
 
 	resetVariables();
 
@@ -26,14 +28,6 @@ function GameController($scope, $timeout, GameState){
 		self.enableIconClick = true;
 		clearIcons();
 		startCountdown();
-	}
-
-	function changeGameState(){
-		if(self.gameState){
-			self.gameState = false;
-		} else {
-			self.gameState = true;
-		}
 	}
 
 	function resetVariables(){
@@ -122,7 +116,7 @@ function GameController($scope, $timeout, GameState){
 
 	function checkForChamp(){
 		if((self.playerScore != 2) && (self.computerScore != 2)){
-			changeGameState();
+			self.gameState = GameState.toggleGameState();
 			startNewRound();
 		} else {
 			identifyChamp();
@@ -139,7 +133,7 @@ function GameController($scope, $timeout, GameState){
 			self.champ = "Computer";
 			self.buttonMessage = self.champ + " wins!!! Click to play again..."
 		}
-		changeGameState();
+		self.gameState = GameState.toggleGameState();
 	}
 
 	self.selectRock = function(){
@@ -188,7 +182,7 @@ function GameController($scope, $timeout, GameState){
 					i++;
 					startLoop();
 				} else {
-					changeGameState();
+					self.gameState = GameState.toggleGameState();
 				}
 			}, 1000);
 		}

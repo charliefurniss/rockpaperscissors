@@ -6,6 +6,15 @@ function GameStateService() {
 
  	var self = this;
 
- 	this.hello = "hello";
+ 	self.gameState = false;
+
+ 	self.toggleGameState = function(){
+ 		if(self.gameState){
+ 			self.gameState = false;
+ 		} else {
+ 			self.gameState = true;
+ 		}
+ 		return self.gameState;
+ 	}
 
 }
