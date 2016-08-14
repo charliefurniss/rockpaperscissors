@@ -14,54 +14,49 @@
 	</header>
 
 	<section ng-controller="GameController as game">
-		<div class="row">
-			
-			
-		</div>	
 
-		<div class="row" id="icon-area">
-				<div class="col-sm-4">
-					<div class="score-container">
-						<h2 class="score">Player: {{ game.playerScore }}</h2>
-					</div>
-					<div class="icon-container simple-border">
-						<img class="icon" alt="" src="images/rock.png">
-					</div>
+		<div class="row" id="game-area">
+			<div class="col-sm-4 icon-area">
+				<div class="score-container">
+					<h2 class="score">Player: {{ game.playerScore }}</h2>
 				</div>
-				<div class="col-sm-4">
+				<div class="icon-container simple-border">
+					<img class="icon" alt="" src="images/rock.png">
 				</div>
-				<div class="col-sm-4">	
-					<div class="score-container">	
-						<h2 class="score">Computer: {{ game.computerScore }}</h2>
-					</div>
-					<div class="icon-container simple-border">
-						<img class="icon" alt="" src="images/rock.png">
-					</div>
-				</div>	
+			</div>
+			<div class="col-sm-4 icon-area">
+			</div>
+			<div class="col-sm-4 icon-area">	
+				<div class="score-container">	
+					<h2 class="score">Computer: {{ game.computerScore }}</h2>
+				</div>
+				<div class="icon-container simple-border">
+					<img class="icon" alt="" src="images/rock.png">
+				</div>
+			</div>	
 		</div>
 
-		<div id="button-icon-container row" ng-show="game.gameState">
-			<div class="button-box simple-border col-md-4" id="button-rock" type="submit" value="" ng-click="game.selectRock()" ng-class="game.dynamicClass">
-				<img class="button-icon" alt="" src="images/rock.png">
+		<div class="buttons-area row" ng-show="game.gameState">
+			<div class="col-md-4">		
+				<div class="button-box simple-border" id="button-rock" type="submit" value="" ng-click="game.selectRock()" ng-class="game.dynamicClass">
+					<img class="button-icon" alt="" src="images/rock.png">
+				</div>
 			</div>
-			<div class="button-box simple-border col-md-4" id="button-paper" type="submit" value="" ng-click="game.selectPaper()" ng-class="game.dynamicClass">
-				<img class="button-icon" alt="" src="images/paper.png">
-			</div>
-			<div class="button-box simple-border col-md-4" id="button-scissors" type="submit" value="" ng-click="game.selectScissors()" ng-class="game.dynamicClass">
-			<img class="button-icon" alt="" src="images/scissors.png">
+			<div class="col-md-4">
+				<div class="button-box simple-border" id="button-paper" type="submit" value="" ng-click="game.selectPaper()" ng-class="game.dynamicClass">
+					<img class="button-icon" alt="" src="images/paper.png">
+				</div>
+			</div>	
+			<div class="col-md-4">
+				<div class="button-box simple-border" id="button-scissors" type="submit" value="" ng-click="game.selectScissors()" ng-class="game.dynamicClass">
+				<img class="button-icon" alt="" src="images/scissors.png">
+				</div>
 			</div>
 		</div>
-
-
-			<!-- <input class="button-icon simple-border" id="button-rock" type="submit" value="" ng-click="game.selectRock()" ng-class="game.dynamicClass">
-			<input class="button-icon simple-border" id="button-paper" type="submit" value="" ng-click="game.selectPaper()">
-			<input class="button-icon simple-border" id="button-scissors" type="submit" value="" ng-click="game.selectScissors()"> -->
 
 		</div>
 		
 		<input class="button-start" id="start-button" type="submit" value="{{ game.buttonMessage }}" ng-click="game.startGame()" ng-show="!game.gameState">
-
-		<!-- <input class="button-start" id="start-button" type="submit" value="{{ game.buttonMessage }}" ng-click="gameState = !gameState" ng-show="!gameState"> -->
 
 	</section>
 

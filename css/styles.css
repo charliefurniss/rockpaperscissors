@@ -20,6 +20,12 @@ header h1 {
 	margin: 0 0 20px 0;
 }
 
+#game-area,
+#message-area {
+	margin-top: 40px;
+	margin-bottom: 20px;
+}
+
 .highlight {
 	background-color: red;
 }
@@ -57,26 +63,10 @@ header h1,
 }
 
 .button-icon {
-	margin: 0 auto;
 	width: 20%;
-	position: absolute;
-	transform: translateY(-50%);
-	-webkit-transform: translateY(-50%);
-	-ms-transform: translateY(-50%);
+	padding-top: 10px
 }
 
-#button-icon-container {
-	margin: 20px 0;
-	clear: both;
-}
-
-#button-rock,
-#button-paper,
-#button-scissors {
-	background-size: 50px 50px;
-	background-repeat: no-repeat;
-	background-position: center;
-}
 
 /* ICON STYLES*/
 
@@ -85,18 +75,7 @@ header h1,
 	vertical-align: middle;
 }
 
-#icon-area {
-	clear: both;
-}
-
-#icon-area,
-#message-area {
-	margin-top: 40px;
-	margin-bottom: 20px;
-}
-
 .icon-container {
-	width: 100%;
     height: 0;
     padding-bottom: 100%;
 }
