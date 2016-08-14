@@ -47,7 +47,7 @@ function GameController($scope, $timeout){
 		self.highlightScissors = false;
 	}
 
-	function computerSelect() {
+	function computerSelect(){
 		var iconArray = ["rock", "paper", "scissors"];
 		var number = Math.floor(((Math.random() * 3)));
 		return iconArray[number];
@@ -89,17 +89,8 @@ function GameController($scope, $timeout){
 	}
 
 	function flashMessage(winner){
-		console.log(winner);
 		$timeout(function(){
-			if (winner == "draw"){
-				self.showPlayerWinMessage = true;
-				self.showComputerWinMessage = true;
-			}
-			else if (winner == "player"){
-				self.showPlayerWinMessage = true;
-			} else {
-				self.showComputerWinMessage = true;
-			}
+			showRelevantMessage(winner);
 			$timeout(function(){
 				increaseScore(winner);
 				self.showPlayerWinMessage = false;
@@ -107,6 +98,18 @@ function GameController($scope, $timeout){
 				checkForChamp();
 			}, 2000, true);
 		}, 2000);
+	}
+
+	function showRelevantMessage(winner){
+		if (winner == "draw"){
+			self.showPlayerWinMessage = true;
+			self.showComputerWinMessage = true;
+		}
+		else if (winner == "player"){
+			self.showPlayerWinMessage = true;
+		} else {
+			self.showComputerWinMessage = true;
+		}
 	}
 
 	function increaseScore(winner){
@@ -118,28 +121,32 @@ function GameController($scope, $timeout){
 	}
 
 	function checkForChamp(){
-		if (self.playerScore == 2) {
-			self.champ = "Player";
-			self.highlightStartButton = true;			
-			self.buttonMessage = self.champ + " wins!!! Click to play again..."
-			self.enableButtonClick = true;
-			changeGameState();
-		} else if (self.computerScore == 2){
-			self.champ = "Computer";
-			self.highlightStartButton = true;
-			self.buttonMessage = self.champ + " wins!!! Click to play again..."
-			self.enableButtonClick = true;
-			changeGameState();
-		} else {
+		if((self.playerScore != 2) && (self.computerScore != 2)){
 			changeGameState();
 			startNewRound();
+		} else {
+			identifyChamp();
 		}
 	}
 
+	function identifyChamp(){
+		self.highlightStartButton = true;
+		self.enableButtonClick = true;
+		if (self.playerScore == 2) {
+			self.champ = "Player";
+			self.buttonMessage = self.champ + " wins!!! Click to play again..."
+		} else if (self.computerScore == 2){
+			self.champ = "Computer";
+			self.buttonMessage = self.champ + " wins!!! Click to play again..."
+		}
+		changeGameState();
+	}
+
 	self.selectRock = function(){
-		self.enableIconClick = false;
 		var turn = "rock";
 		completeRound(turn);
+
+		self.enableIconClick = false;
 		self.highlightRock = true;
 		$timeout(function(){
 			self.highlightRock = false;
@@ -147,9 +154,10 @@ function GameController($scope, $timeout){
 	}
 
 	self.selectPaper = function(){
-		self.enableIconClick = false;
 		var turn = "paper";
 		completeRound(turn);
+		
+		self.enableIconClick = false;
 		self.highlightPaper = true;
 		$timeout(function(){
 			self.highlightPaper = false;
@@ -157,9 +165,10 @@ function GameController($scope, $timeout){
 	}
 
 	self.selectScissors = function(){
-		self.enableIconClick = false;
 		var turn = "scissors";
 		completeRound(turn);
+		
+		self.enableIconClick = false;
 		self.highlightScissors = true;
 		$timeout(function(){
 			self.highlightScissors = false;
@@ -167,7 +176,6 @@ function GameController($scope, $timeout){
 	}
 
 	function startCountdown(){
-
 		self.buttonMessage = "";
 
 		var countdownArray = ["Ready?", "Ready?", "3", "2", "1"];
