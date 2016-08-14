@@ -57,7 +57,10 @@ function GameController($scope, $timeout){
 		var computerTurn = computerSelect();
 		self.playerIconURL = "images/" + playerTurn + ".png";
 		self.computerIconURL = "images/" + computerTurn + ".png";
-		findWinner(playerTurn, computerTurn);
+		
+		var winner = findWinner(playerTurn, computerTurn);
+		self.winMessage = createWinMessage(winner, playerTurn, computerTurn);
+		flashMessage(winner);
 	}
 
 	function clearIcons(){
@@ -66,25 +69,41 @@ function GameController($scope, $timeout){
 	}
 
 	function findWinner(playerTurn, computerTurn){
-		var winner = "";
 		if (playerTurn === computerTurn){
-			self.winMessage = "It's a draw!";
+			return "draw";
 		} else if ((playerTurn == "rock" && computerTurn == "scissors") || (playerTurn == "scissors" && computerTurn == "paper") || (playerTurn == "paper" && computerTurn == "rock")){
-			self.winMessage = playerTurn + " wins!";
-			winner = "player";
+			return "player";
 		} else {
-			self.winMessage = computerTurn + " wins!";
-			winner = "computer";
+			return "computer";
 		}
-		flashMessage(winner);
+	}
+
+	function createWinMessage(winner, playerTurn, computerTurn){
+		if (winner == "draw"){
+			return "It's a draw!";
+		} else if (winner == "player") {
+			return playerTurn + " wins!";
+		} else {
+			return computerTurn + " wins!";
+		}
 	}
 
 	function flashMessage(winner){
+		console.log(winner);
 		$timeout(function(){
-			self.showWinMessage = true;
+			if (winner == "draw"){
+				self.showPlayerWinMessage = true;
+				self.showComputerWinMessage = true;
+			}
+			else if (winner == "player"){
+				self.showPlayerWinMessage = true;
+			} else {
+				self.showComputerWinMessage = true;
+			}
 			$timeout(function(){
 				increaseScore(winner);
-				self.showWinMessage = false;
+				self.showPlayerWinMessage = false;
+				self.showComputerWinMessage = false;
 				checkForChamp();
 			}, 2000, true);
 		}, 2000);
