@@ -136,6 +136,18 @@ header h1 {
 }
 
 
+@media screen and (max-width: 768px) {
+
+	/*BUTTON STYLES*/
+
+	.button-icon {
+		width: 30%;
+		padding-top: 10px
+	}
+
+}
+
+
 @media screen and (max-width: 544px) {
 
 	/*GENERAL STYLES*/
